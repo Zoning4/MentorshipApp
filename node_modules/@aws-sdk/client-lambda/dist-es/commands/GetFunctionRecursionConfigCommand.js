@@ -1,0 +1,16 @@
+import { Command as $Command } from "@smithy/core/client";
+import { getEndpointPlugin } from "@smithy/core/endpoints";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { GetFunctionRecursionConfig$ } from "../schemas/schemas_0";
+export { $Command };
+export class GetFunctionRecursionConfigCommand extends $Command
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+})
+    .s("AWSGirApiService", "GetFunctionRecursionConfig", {})
+    .n("LambdaClient", "GetFunctionRecursionConfigCommand")
+    .sc(GetFunctionRecursionConfig$)
+    .build() {
+}

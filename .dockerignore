@@ -1,0 +1,12 @@
+.git/
+.dart_tool/
+build/
+android/
+ios/
+windows/
+macos/
+linux/
+node_modules/
+.npm/
+.amplify/
+amplify/

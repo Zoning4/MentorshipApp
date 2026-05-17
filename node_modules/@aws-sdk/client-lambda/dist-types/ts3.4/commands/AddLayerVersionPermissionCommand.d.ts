@@ -1,0 +1,53 @@
+import { Command as $Command } from "@smithy/core/client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import {
+  LambdaClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../LambdaClient";
+import {
+  AddLayerVersionPermissionRequest,
+  AddLayerVersionPermissionResponse,
+} from "../models/models_0";
+export { __MetadataBearer };
+export { $Command };
+export interface AddLayerVersionPermissionCommandInput
+  extends AddLayerVersionPermissionRequest {}
+export interface AddLayerVersionPermissionCommandOutput
+  extends AddLayerVersionPermissionResponse,
+    __MetadataBearer {}
+declare const AddLayerVersionPermissionCommand_base: {
+  new (
+    input: AddLayerVersionPermissionCommandInput
+  ): import("@smithy/core/client").CommandImpl<
+    AddLayerVersionPermissionCommandInput,
+    AddLayerVersionPermissionCommandOutput,
+    LambdaClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >;
+  new (
+    input: AddLayerVersionPermissionCommandInput
+  ): import("@smithy/core/client").CommandImpl<
+    AddLayerVersionPermissionCommandInput,
+    AddLayerVersionPermissionCommandOutput,
+    LambdaClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >;
+  getEndpointParameterInstructions(): {
+    [x: string]: unknown;
+  };
+};
+export declare class AddLayerVersionPermissionCommand extends AddLayerVersionPermissionCommand_base {
+  protected static __types: {
+    api: {
+      input: AddLayerVersionPermissionRequest;
+      output: AddLayerVersionPermissionResponse;
+    };
+    sdk: {
+      input: AddLayerVersionPermissionCommandInput;
+      output: AddLayerVersionPermissionCommandOutput;
+    };
+  };
+}

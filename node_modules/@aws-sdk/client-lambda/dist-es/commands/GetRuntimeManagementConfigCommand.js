@@ -1,0 +1,16 @@
+import { Command as $Command } from "@smithy/core/client";
+import { getEndpointPlugin } from "@smithy/core/endpoints";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { GetRuntimeManagementConfig$ } from "../schemas/schemas_0";
+export { $Command };
+export class GetRuntimeManagementConfigCommand extends $Command
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+})
+    .s("AWSGirApiService", "GetRuntimeManagementConfig", {})
+    .n("LambdaClient", "GetRuntimeManagementConfigCommand")
+    .sc(GetRuntimeManagementConfig$)
+    .build() {
+}

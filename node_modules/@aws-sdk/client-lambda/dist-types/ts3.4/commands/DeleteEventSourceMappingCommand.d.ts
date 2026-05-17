@@ -1,0 +1,53 @@
+import { Command as $Command } from "@smithy/core/client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import {
+  LambdaClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../LambdaClient";
+import {
+  DeleteEventSourceMappingRequest,
+  EventSourceMappingConfiguration,
+} from "../models/models_0";
+export { __MetadataBearer };
+export { $Command };
+export interface DeleteEventSourceMappingCommandInput
+  extends DeleteEventSourceMappingRequest {}
+export interface DeleteEventSourceMappingCommandOutput
+  extends EventSourceMappingConfiguration,
+    __MetadataBearer {}
+declare const DeleteEventSourceMappingCommand_base: {
+  new (
+    input: DeleteEventSourceMappingCommandInput
+  ): import("@smithy/core/client").CommandImpl<
+    DeleteEventSourceMappingCommandInput,
+    DeleteEventSourceMappingCommandOutput,
+    LambdaClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >;
+  new (
+    input: DeleteEventSourceMappingCommandInput
+  ): import("@smithy/core/client").CommandImpl<
+    DeleteEventSourceMappingCommandInput,
+    DeleteEventSourceMappingCommandOutput,
+    LambdaClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >;
+  getEndpointParameterInstructions(): {
+    [x: string]: unknown;
+  };
+};
+export declare class DeleteEventSourceMappingCommand extends DeleteEventSourceMappingCommand_base {
+  protected static __types: {
+    api: {
+      input: DeleteEventSourceMappingRequest;
+      output: EventSourceMappingConfiguration;
+    };
+    sdk: {
+      input: DeleteEventSourceMappingCommandInput;
+      output: DeleteEventSourceMappingCommandOutput;
+    };
+  };
+}
