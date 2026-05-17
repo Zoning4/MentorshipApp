@@ -37,11 +37,6 @@ dependencies:
   intl: ^0.19.0
   shared_preferences: ^2.3.4
   
-  # AWS Amplify
-  amplify_flutter: ^2.0.0
-  amplify_auth_cognito: ^2.0.0
-  amplify_api: ^2.0.0
-  amplify_storage_s3: ^2.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
