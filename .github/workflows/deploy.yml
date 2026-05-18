@@ -1,0 +1,47 @@
+name: Flutter CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  analyze:
+    name: Analyze and Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.41.9
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+
+  deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    needs: analyze
+    if: github.ref == "refs/heads/main" && github.event_name == "push"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.41.9
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter build web --release --web-renderer html
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Deploy to S3
+        run: |
+          aws s3 sync build/web s3://${{ secrets.AMPLIFY_HOSTING_BUCKET }} --delete
+          aws s3 cp build/web/index.html s3://${{ secrets.AMPLIFY_HOSTING_BUCKET }}/index.html --cache-control no-cache
+      - run: echo Deployed successfully

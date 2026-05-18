@@ -1,0 +1,21 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - curl -fsSL https://storage.googleapis.com/flutter-infra-release/releases/stable/linux/flutter_linux_3.41.9-stable.tar.xz -o flutter.tar.xz
+        - tar xf flutter.tar.xz
+        - export PATH="$PATH:`pwd`/flutter/bin"
+        - flutter pub get
+    build:
+      commands:
+        - export PATH="$PATH:`pwd`/flutter/bin"
+        - flutter build web --release --web-renderer html
+  artifacts:
+    baseDirectory: build/web
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - flutter/bin/cache/**/*
+      - .pub-cache/**/*
