@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "mentorshipapp",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authmentorshipapp2958f9c1",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

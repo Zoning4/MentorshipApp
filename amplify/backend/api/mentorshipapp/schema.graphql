@@ -1,0 +1,40 @@
+type UserProfile @model @auth(rules: [{ allow: owner }, { allow: groups, groups: ["Admin"] }]) {
+  id: ID!
+  email: String!
+  fullName: String!
+  role: String!         # "mentor" or "mentee"
+  department: String
+  bio: String
+  profilePictureKey: String
+  createdAt: AWSDateTime
+}
+
+type Pairing @model @auth(rules: [{ allow: groups, groups: ["Admin"] }]) {
+  id: ID!
+  mentorId: ID!
+  menteeId: ID!
+  mentor: UserProfile @hasOne(fields: ["mentorId"])
+  mentee: UserProfile @hasOne(fields: ["menteeId"])
+  startDate: AWSDate
+  status: String       # "active" or "closed"
+  notes: String
+}
+
+type Session @model @auth(rules: [{ allow: owner }, { allow: groups, groups: ["Admin"] }]) {
+  id: ID!
+  pairingId: ID!
+  pairing: Pairing @hasOne(fields: ["pairingId"])
+  scheduledAt: AWSDateTime!
+  durationMinutes: Int
+  topic: String
+  notes: String
+  status: String       # "scheduled", "completed", "cancelled"
+}
+
+type Message @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  pairingId: ID!
+  senderEmail: String!
+  content: String!
+  sentAt: AWSDateTime!
+}

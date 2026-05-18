@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-mentorshipapp-dev-923a3-authRole",
+      "UnauthRoleArn": "arn:aws:iam::022784798229:role/amplify-mentorshipapp-dev-923a3-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::022784798229:role/amplify-mentorshipapp-dev-923a3-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-mentorshipapp-dev-923a3-deployment",
+      "UnauthRoleName": "amplify-mentorshipapp-dev-923a3-unauthRole",
+      "StackName": "amplify-mentorshipapp-dev-923a3",
+      "StackId": "arn:aws:cloudformation:us-east-1:022784798229:stack/amplify-mentorshipapp-dev-923a3/f7d93ae0-51e7-11f1-90df-0e05f9c51c01",
+      "AmplifyAppId": "diyq2qi0suz0m"
+    },
+    "categories": {
+      "auth": {
+        "mentorshipapp2958f9c1": {}
+      },
+      "api": {
+        "mentorshipapp": {}
+      },
+      "storage": {
+        "s3b4b5b32b": {}
+      }
+    }
+  }
+}

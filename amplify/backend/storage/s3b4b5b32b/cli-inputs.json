@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3b4b5b32b",
+  "policyUUID": "b4b5b32b",
+  "bucketName": "mentorshipappa7b92441f24f44dc859a7febb33e705d",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
